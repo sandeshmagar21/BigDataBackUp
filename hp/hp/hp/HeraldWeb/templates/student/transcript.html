@@ -1,0 +1,59 @@
+{% extends './studentbase.html' %}
+{% block content %}
+<head>
+  <style media="screen">
+    input[type=text], select,input[type=number] , textarea{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+
+
+  </style>
+
+
+</head>
+
+
+
+<div class="card-columns" >
+    {% for bro in show %}
+    <div class="card" style="background-color:rgb(230, 230, 225); width: 25rem;">
+  <img class="card-img-top" src="{{bro.picture.url }}">
+  <div class="card-body">
+    <h5 class="card-title">{{ bro.title }}</h5>
+    <p class="alert alert-success" role="alert">{{ bro.picture }}</p>
+   <div class="card-footer bg-transparent border-dark">
+   <p class="card-title badge badge-light alert-success">{{list.description}}</p>
+   <center>
+       <a href="{{bro.picture.url}}" class="btn btn-dark" download>Download</a> 
+    </center>
+    </div>
+  </div>
+</div>
+    {% endfor %}
+</div>
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% endblock content %}

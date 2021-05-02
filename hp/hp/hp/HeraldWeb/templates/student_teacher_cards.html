@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      max-width: 300px;
+      margin: auto;
+      text-align: center;
+      font-family: arial;
+    }
+
+    .title {
+      color: grey;
+      font-size: 18px;
+    }
+
+    .btnt {
+      border: none;
+      outline: 0;
+      display: inline-block;
+      padding: 5px;
+      color: white;
+      background: #3f51b5!important;
+      background-color: #000;
+      text-align: center;
+      cursor: pointer;
+      width: 100%;
+      font-size:  23px;
+
+    }
+
+    button:hover, a:hover 
+    {
+      opacity: 0.7;
+      color: #000;;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      padding: 60px;
+      margin-left:150px;
+    }
+
+    a:link {
+      text-decoration: none;
+    }
+
+    a {
+      color: white;
+    }
+  </style>
+
+  {% include './navbar.html'%}
+</head>
+
+<body>
+
+  <div class="grid-container ml-0">
+
+    
+    <div class="grid-item">
+      <div class="card">
+        <img src="{% static 'images/admin.png' %}" alt="admin_picture" style="width:100%">
+        <p class="title"> Admin </p>
+        <div class="btnt"><a href="{% url 'adminclick' %}">View</a></button></div> 
+      </div>
+    </div>
+
+
+    {% comment %} <div class="grid-item">
+      <div class="card">
+        <img src="{% static 'images/teacher.png' %}" alt="teacher_picture" style="width:100%">
+        <p class="title"> Teacher </p>
+        <div class="btnt"><a href="{% url 'teacherclick' %}">View</a></button></div> 
+      </div>
+    </div> {% endcomment %}
+
+
+    <div class="grid-item">
+      <div class="card">
+        <img src="{% static 'images/student.png' %}" alt="guest_picture" style="width:100%">
+        <p class="title">Student</p>
+        <div class="btnt"><a href="{% url 'studentclick' %}">View</a></button></div> 
+      </div>
+    </div>
+
+</div>
+{% include './footer.html'%}
+</body>
+
+</html>
