@@ -25,15 +25,15 @@
 				</a>
 			</li>
 			<li class="nav-item">
-				<a style="text-decoration:none;"href="/student-dashboard"><h3>School Management System</h3></a>
+				<a style="text-decoration:none;"href="/student-dashboard"><h3>Student Dashboard</h3></a>
 			</li>
 		</ul>
 		<!-- end nav left -->
 		<!-- form -->
-		<form class="navbar-search">
+		{% comment %} <form class="navbar-search">
 			<input type="text" name="Search" class="navbar-search-input" placeholder="What you looking for...">
 			<i class="fas fa-search"></i>
-		</form>
+		</form> {% endcomment %}
 		<!-- end form -->
 		<!-- nav right -->
 		<ul class="navbar-nav nav-right">
@@ -100,6 +100,15 @@
 					<i class="fas fa-comments"></i>
 					</div>
 					<span> FeedBack </span>
+				</a>
+			</li>
+
+				<li  class="sidebar-nav-item">
+				<a href="/show" class="sidebar-nav-link">
+					<div>
+					<i class="fas fa-comments"></i>
+					</div>
+					<span> Download </span>
 				</a>
 			</li>
 		</ul>

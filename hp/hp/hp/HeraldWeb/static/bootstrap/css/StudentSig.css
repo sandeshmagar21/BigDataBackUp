@@ -1,0 +1,30 @@
+body {
+background-image: url(../img/HCLobby.jpg);
+   background-size: cover;
+}
+
+*[role="form"] {
+   max-width: 560px;
+   padding:30px;
+   padding-left: 20px;
+   padding-right: -15px;
+   font-size: 20px;
+   font-weight: 100;
+   margin: 0 inherit;
+   border-radius: 0.9em;
+   margin-left: 50%;
+   margin-top: 5%;
+   background-color: #b1d19b80;
+}
+*[role="form"] h2 { 
+   font-family: 'Open Sans' , sans-serif;
+   font-size: 25px;
+   font-weight: 400;
+   color: #000000;
+   margin-top: 10%;
+   margin-left: 10%;
+   text-align: center;
+   text-transform: uppercase;
+   letter-spacing: 4px;
+}
+

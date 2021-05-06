@@ -1,5 +1,6 @@
 {% extends './studentbase.html' %}
 {% block content %}
+
 <head>
   <style media="screen">
     input[type=text], select,input[type=number] , textarea{
@@ -33,25 +34,27 @@
 
 </head>
 
+<div class="container">
 
-
-<div class="card-columns" >
-    {% for bro in show %}
-    <div class="card" style="background-color:rgb(230, 230, 225); width: 25rem;">
-  <img class="card-img-top" src="{{bro.picture.url }}">
-  <div class="card-body">
-    <h5 class="card-title">{{ bro.title }}</h5>
-    <p class="alert alert-success" role="alert">{{ bro.picture }}</p>
-   <div class="card-footer bg-transparent border-dark">
-   <p class="card-title badge badge-light alert-success">{{list.description}}</p>
-   <center>
-       <a href="{{bro.picture.url}}" class="btn btn-dark" download>Download</a> 
-    </center>
+    <div class="card-columns" >
+        {% for bro in show %}
+          <div class="card" style="background-color:rgb(230, 230, 225); width: 25rem;">
+        <img class="card-img-top" src="{{bro.picture.url }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ bro.title }}</h5>
+          <p class="alert alert-success" role="alert">{{ bro.picture }}</p>
+        <div class="card-footer bg-transparent border-dark">
+        <p class="card-title badge badge-light alert-success">{{list.description}}</p>
+        <center>
+            <a href="{{bro.picture.url}}" class="btn btn-dark" download>Download</a> 
+          </center>
+          </div>
+        </div>
+      </div>
+        {% endfor %}
     </div>
   </div>
-</div>
-    {% endfor %}
-</div>
+
 
 
 

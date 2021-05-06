@@ -1,0 +1,78 @@
+	{% load static %}
+	<!DOCTYPE html>
+	<html lang="zxx" class="no-js">
+	<head>
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="img/fav.png">
+		<!-- Author Meta -->
+		<meta name="author" content="colorlib">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>Education</title>
+
+		    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+			<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+			<link rel="stylesheet" href="{%static 'bootstrap/css/linearicons.css'%}">
+			<link rel="stylesheet" href="{%static 'bootstrap/css/font-awesome.min.css'%}">
+			<link rel="stylesheet" href="{%static 'bootstrap/css/bootstrap.css'%}">
+			<link rel="stylesheet" href="{%static 'bootstrap/css/magnific-popup.css'%}">
+			<link rel="stylesheet" href="{%static 'bootstrap/css/nice-select.css'%}">							
+			<link rel="stylesheet" href="{%static 'bootstrap/css/animate.min.css'%}">
+			<link rel="stylesheet" href="{%static 'bootstrap/css/owl.carousel.css'%}">			
+			<link rel="stylesheet" href="{%static 'bootstrap/css/jquery-ui.css'%}">			
+			<link rel="stylesheet" href="{%static 'bootstrap/css/main.css'%}">
+			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		</head>
+	
+		<body>	
+		  <header id="header" id="home">
+	  	
+		    <div class="container main-menu">
+		    	<div class="row align-items-center justify-content-between d-flex">
+			      <div id="logo">
+			    <a href="{% url 'startPG'%}"><img style="width: 80px;" class="img-responsive logo_transparent_static visible" src="{%static 'bootstrap/img/book.png'%}" alt="" title="" /></a>
+			      </div>
+			 	   <nav id="nav-menu-container">
+			        <ul class="nav-menu">
+			           <li><a class="text-success" href="{% url 'startPG'%}">Home</a></li>
+			    	  <li><a class="text-success"  href="{% url 'adminclick' %}">Admin</a></li>
+					  <li><a class="text-success" href="{%url 'chltu'%}">ChatBot</a></li>
+					  <li><a class="text-success" href="{%url 'login'%}">Login</a></li>
+			          <li><a class="text-success" href="{%url 'contact'%}">Contact</a></li>
+			        </ul>
+			      </nav><!-- #nav-menu-container -->		    		
+		    	</div>
+		    </div>
+		  </header>
+          {% block content %}
+          {% endblock  %}
+
+          <!-- start footer Area -->		
+		
+			<!-- End footer Area -->	
+
+
+			<script src="{%static 'bootstrap/js/vendor/jquery-2.2.4.min.js'%}"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+			<script src="{%static 'bootstrap/js/vendor/bootstrap.min.js'%}"></script>			
+			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+  			<script src="{%static 'bootstrap/js/easing.min.js'%}"></script>			
+			<script src="{%static 'bootstrap/js/hoverIntent.js'%}"></script>	
+			<script src="{%static 'bootstrap/js/superfish.min.js'%}"></script>	
+			<script src="{%static 'bootstrap/js/jquery.ajaxchimp.min.js'%}"></script>
+			<script src="{%static 'bootstrap/js/jquery.magnific-popup.min.js'%}"></script>	
+    		<script src="{%static 'bootstrap/js/jquery.tabs.min.js'%}"></script>						
+			<script src="{%static 'bootstrap/js/jquery.nice-select.min.js'%}"></script>	
+			<script src="{%static 'bootstrap/js/owl.carousel.min.js'%}"></script>									
+			<script src="{%static 'bootstrap/js/mail-script.js'%}"></script>	
+			<script src="{%static 'bootstrap/js/main.js'%}"></script>	
+		</body>
+	</html>

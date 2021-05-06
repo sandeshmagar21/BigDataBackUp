@@ -1,0 +1,5 @@
+1. spacy version : 2.3.2 
+2. spacy model : en
+3. python version : 3.7.9
+4. chatterbot
+5. nlkt

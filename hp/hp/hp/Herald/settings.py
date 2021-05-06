@@ -27,7 +27,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'HeraldWeb', 
     'widget_tweaks',
-    'chatterbot.ext.django_chatterbot',
 ]
 
 MIDDLEWARE = [

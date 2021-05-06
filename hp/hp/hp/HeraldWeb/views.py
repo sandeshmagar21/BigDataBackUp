@@ -17,6 +17,7 @@ from .models import Contact
 import json
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
+from chatterbot.conversation import Statement
 
 
 
@@ -63,6 +64,7 @@ def get_response(request):
 		message = data['message']
 
 		chat_response = chatbot.get_response(message).text
+        
 		response['message'] = {'text': chat_response, 'user': False, 'chat_bot': True}
 		response['status'] = 'ok'
 
@@ -73,6 +75,7 @@ def get_response(request):
 		json.dumps(response),
 			content_type="application/json"
 		)
+        
 
 training_data_quesans = open('training_data/database.txt').read().splitlines()
 

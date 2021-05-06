@@ -2,23 +2,23 @@
 <html>
 <head>
 	<title>{% block title %}{{ title }}{% endblock %}</title>
-
+	{% load static %}
 	<meta charset="utf-8"/>
-
-	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="/static/css/style.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<script type="text/javascript" src="/static/js/dev-vue.js"></script>
+	<link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'style1.css' %}">
+	 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	{% comment %} <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">  {% endcomment %}
+	{% comment %} <script type="text/javascript" src="/static/js/dev-vue.js"></script> {% endcomment %}
+	<script src="{%static 'bootstrap/js/dev-vue.js'%}"></script>	
 	{% block css %} {% endblock %}
 
-	{% block js %}{% endblock %}
+	{% block js %}{% endblock %}1
 </head>
 <body>
 	<!-- Image and text -->
 	<ul class="nav justify-content-center">
   <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="{% url 'startPG'%}">Home</a>
+    <a class="text-warning" aria-current="page" href="{% url 'startPG'%}">Home</a>
   </li>
 
 </ul>

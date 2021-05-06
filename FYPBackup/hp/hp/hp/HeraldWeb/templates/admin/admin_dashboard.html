@@ -1,0 +1,48 @@
+{% extends './adminbase.html' %}
+{% load static %}
+{% block content %}
+
+	<!-- main content -->
+	<div class="wrapper">
+
+<!-- ****** cards start ********** -->
+		<div class="row">
+			<div class="col-3 col-m-6 col-sm-6">
+				<div class="counter bg-primary">
+					<p>
+						<i class="fas fa-users"></i>
+					</p>
+					<h3>{{total_teacher}}</h3>
+					<p>Total Teacher</p>
+				</div>
+			</div>
+			<div class="col-3 col-m-6 col-sm-6">
+				<div class="counter bg-warning">
+					<p>
+						<i class="fas fa-hat-cowboy"></i>
+					</p>
+					<h3>{{total_student}}</h3>
+					<p>Total Student</p>
+				</div>
+			</div>
+		
+			<div class="col-3 col-m-6 col-sm-6">
+				<div class="counter bg-danger">
+					<p>
+						<i class="fas fa-comments"></i>
+					</p>
+					<h3>{{total_feedback}}</h3>
+					<p>Total Feedback</p>
+				</div>
+			</div>
+		</div>
+		
+<!-- ****** cards end ********** -->
+
+
+
+  <br><br><br><br><br><br>
+
+	</div>
+	<!-- end main content -->
+{% endblock content %}
