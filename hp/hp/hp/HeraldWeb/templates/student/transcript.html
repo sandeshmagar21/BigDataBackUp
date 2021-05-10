@@ -2,21 +2,23 @@
 {% load static %}
 {% block content %}
 
- <link rel="stylesheet" href="{%static 'bootstrap/css/trasn.css'%}">
+
+<link rel="stylesheet" href="{% static 'bootstrap/css/down.css' %}">
 
 <div class="container">
 
     <div class="card-columns" >
         {% for bro in show %}
-          <div class="card" style="background-color:rgb(230, 230, 225); width: 25rem;">
-        <img class="card-img-top" src="{{bro.picture.url }}">
+      <div class="card">
+        <img class="card-img-top"  src="{{bro.picture.url }}">
         <div class="card-body">
-          <h5 class="card-title">{{ bro.title }}</h5>
-          <p class="alert alert-success" role="alert">{{ bro.picture }}</p>
-        <div class="card-footer bg-transparent border-dark">
-        <p class="card-title badge badge-light alert-success">{{list.description}}</p>
+      
+        <h5 class="card-title">Title: {{ bro.title }}</h5>
+          {% comment %} <p class="alert alert-success" role="alert">{{ bro.picture.url }}</p> {% endcomment %}
+        <div class="card-footer bg-transparent border-dark text-white">
+        <p class="card-title badge badge-light alert-success"><h5 class='text-white'> Description:</h5> {{bro.description}}</p>
         <center>
-            <a href="{{bro.picture.url}}" class="btn btn-dark" download>Download</a> 
+            <a href="{{bro.picture.url}}" class="btn-success" download>Download</a> 
           </center>
           </div>
         </div>

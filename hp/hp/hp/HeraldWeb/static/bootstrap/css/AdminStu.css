@@ -1,8 +1,8 @@
 body {
-    /* background: #2E95EF; */
-    background-image: url(../img/tom-hermans-9BoqXzEeQqM-unsplash.jpg);
+     background: #2E95EF; 
+     background-image: url(../img/learn2.jpg);
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; 
     /* background-image: -moz-radial-gradient(center 45deg,circle cover, #9BD1FF, #2E95EF);
     background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%,800, from(#9BD1FF), to(#2E95EF)); */
     padding-top: 20px;
@@ -21,9 +21,13 @@ body {
 }
 
 .jumbotron {
-    margin-left: 850px;
-    margin-right: 230px;
-    margin-top: 100px;
+    margin-left: 480px;
+    margin-right: 580px;
+    margin-top: 50;
+    border-radius: 5%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #000000;
    
    
     background: #858daba8;

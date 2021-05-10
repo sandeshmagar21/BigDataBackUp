@@ -1,0 +1,67 @@
+/* Made with love by Mutiullah Samim*/
+
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+html,body{
+background-image: url(../img/skk3.jpg);
+/* background-color: azure; */
+background-size: cover;
+background-repeat: no-repeat;
+height: auto;
+font-family: 'Numans', sans-serif;
+}
+
+/* .container{
+height: 100%;
+align-content: center;
+} */
+.container{
+    height: 100%;
+    align-content: center;
+   
+    margin-left: auto;
+    padding-top: 5%;
+    }
+.form-control{
+    width: 90%;
+    height: 20%;
+    margin-left: 20px;
+    margin-top: 15px;
+    margin-bottom: 100px;
+    border-width: 3px;
+    border-color: black;
+}
+.card{
+height: auto;
+margin-left: 500px;
+margin-bottom: 50px;
+margin-top: auto;
+width: 450px;
+border-radius: 3.5%;
+border-color:rgb(85 26 139);
+border-width: 3px;
+border-style: solid;
+background-color: rgba(94 95 112 / 69%) !important;
+}
+
+.card-columns{
+    
+}
+
+.btn{
+    margin-left: 150px;
+    
+}
+.row1{
+    margin-left: 780px;
+    margin-top: -318px;
+}
+
+.row{
+    margin-left: 200px;
+}
+
+.card-img-top{
+    width: 100%;
+    height: auto;
+}
