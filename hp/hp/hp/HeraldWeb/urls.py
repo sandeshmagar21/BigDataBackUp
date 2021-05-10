@@ -14,6 +14,7 @@ urlpatterns = [
     # path('bot/', bot, name='bot'),
     path('chatbotHome/',views.chathome, name='chltu'),
     path('get-response/', views.get_response),
+    path('adBot/', views.adminbot, name='adbot'),
    
     # actual urls start 
     path('start/', views.GetStarted, name='start'),
@@ -21,16 +22,16 @@ urlpatterns = [
 
     # For after click
     path('adminclick', views.adminclick_view, name = 'adminclick'), 
-    path('teacherclick', views.teacherclick_view,name = 'teacherclick' ),
+    # path('teacherclick', views.teacherclick_view,name = 'teacherclick' ),
     path('studentclick', views.studentsclick_view, name = 'studentclick'),
 
     # For Signup
-    path('teachersignup', views.teacher_signup_view,name='teachersignup'),
+    # path('teachersignup', views.teacher_signup_view,name='teachersignup'),
     path('studentsignup', views.student_signup_view,name='studentsignup'),
 
     # For Login
     path('login/', LoginView.as_view(template_name='student/studentlogin.html'),name='login'),
-    path('teacherlogin', LoginView.as_view(template_name='teacher/teacherlogin.html'),name='teacherlogin'),
+    # path('teacherlogin', LoginView.as_view(template_name='teacher/teacherlogin.html'),name='teacherlogin'),
     path('studentlogin', LoginView.as_view(template_name='student/studentlogin.html'),name='studentlogin'),
     path('adminlogin', LoginView.as_view(template_name='admin/adminlogin.html'),name='adminlogin'),
     path('accounts/profile/', views.Welcome, name='adminlogin'),
@@ -42,10 +43,10 @@ urlpatterns = [
     path('delete-teacher/<int:pk>', views.delete_teacher_view,name='delete-teacher'),
     path('update-teacher/<int:pk>', views.update_teacher_view,name='update-teacher'),
     path('admin-add-teacher', views.admin_add_teacher_view,name='admin-add-teacher'),
-    path('teacher-request', views.teacher_request_view,name='teacher-request'),
-    path('teacher-dashboard', views.teacher_dashboard_view,name='teacher-dashboard'),
-    path('teacher-profile', views.teacher_profile_view,name='teacher-profile'),
-    path('edit-teacher-profile', views.edit_teacher_profile_view,name='edit-teacher-profile'),
+    # path('teacher-request', views.teacher_request_view,name='teacher-request'),
+    # path('teacher-dashboard', views.teacher_dashboard_view,name='teacher-dashboard'),
+    # path('teacher-profile', views.teacher_profile_view,name='teacher-profile'),
+    # path('edit-teacher-profile', views.edit_teacher_profile_view,name='edit-teacher-profile'),
 
     # Admin Power for Guest
     path('admin-student', views.admin_student_view,name='admin-student'),
@@ -73,12 +74,12 @@ urlpatterns = [
 
    # For Feedback  
    path('student_feedback_message/', views.student_feedback_message, name="student_feedback_message"),
-   path('student_feedback_message_reply/', views.student_feedback_message_reply, name="student_feedback_message_reply"),
-   path('teacher_feedback_message/', views.teacher_feedback_message, name="teacher_feedback_message"),
-   path('teacher_feedback_message_reply/',views.teacher_feedback_message_reply, name="teacher_feedback_message_reply"),
+#   path('student_feedback_message_reply/', views.student_feedback_message_reply, name="student_feedback_message_reply"),
+#    path('teacher_feedback_message/', views.teacher_feedback_message, name="teacher_feedback_message"),
+#    path('teacher_feedback_message_reply/',views.teacher_feedback_message_reply, name="teacher_feedback_message_reply"),
 
-   path('teacher_feedback/', views.teacher_feedback, name="teacher_feedback"),
-   path('teacher_feedback_save/',views.teacher_feedback_save, name="teacher_feedback_save"),
+#    path('teacher_feedback/', views.teacher_feedback, name="teacher_feedback"),
+#    path('teacher_feedback_save/',views.teacher_feedback_save, name="teacher_feedback_save"),
 
    path('student_feedback/', views.student_feedback, name="student_feedback"),
    path('student_feedback_save/',views.student_feedback_save, name="student_feedback_save"),

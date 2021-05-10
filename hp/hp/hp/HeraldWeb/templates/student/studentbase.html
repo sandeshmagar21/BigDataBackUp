@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
+{% load widget_tweaks %}
+
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
@@ -28,14 +30,7 @@
 				<a style="text-decoration:none;"href="/student-dashboard"><h3>Student Dashboard</h3></a>
 			</li>
 		</ul>
-		<!-- end nav left -->
-		<!-- form -->
-		{% comment %} <form class="navbar-search">
-			<input type="text" name="Search" class="navbar-search-input" placeholder="What you looking for...">
-			<i class="fas fa-search"></i>
-		</form> {% endcomment %}
-		<!-- end form -->
-		<!-- nav right -->
+
 		<ul class="navbar-nav nav-right">
 			<li class="nav-item mode">
 				<a class="nav-link" href="#" onclick="switchTheme()">
@@ -47,9 +42,10 @@
 			<li class="nav-item avt-wrapper">
 				<div class="avt dropdown">
 					{% if student_obj %}
-					<img src="{{ student_obj.profile_pic.url }} " alt="User image" class="dropdown-toggle" data-toggle="user-menu">
+					<img src="{{student_obj.profile_pic.url }}" alt="User image" class="dropdown-toggle" data-toggle="user-menu">
 					{% else %}
-					<img src="{{ student.profile_pic.url }} " alt="User image" class="dropdown-toggle" data-toggle="user-menu">
+					 <img src="/static/images/admin1.png " alt=" " class="dropdown-toggle" data-toggle="user-menu">
+					{% comment %} <img src="{{student_obj.profile_pic.url }}" alt=" " class="dropdown-toggle" data-toggle="user-menu"> {% endcomment %}
 					{% endif %}
 					<ul id="user-menu" class="dropdown-menu">
 
@@ -97,7 +93,7 @@
 			<li  class="sidebar-nav-item">
 				<a href="/student_feedback" class="sidebar-nav-link">
 					<div>
-					<i class="fas fa-comments"></i>
+					<i class="far fa-comment-alt"></i>
 					</div>
 					<span> FeedBack </span>
 				</a>
@@ -106,7 +102,7 @@
 				<li  class="sidebar-nav-item">
 				<a href="/show" class="sidebar-nav-link">
 					<div>
-					<i class="fas fa-comments"></i>
+					<i class="fas fa-file-download"></i>
 					</div>
 					<span> Download </span>
 				</a>

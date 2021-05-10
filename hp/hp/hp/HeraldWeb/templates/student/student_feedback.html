@@ -59,15 +59,14 @@
                                     <tr>
                                         <th>#ID</th>
                                         <th>Feedback Message</th>
-                                        <th>Feedback Reply</th>
-                                    </tr>
+                                        
                                     </thead>
                                     
                                     {% for row in feedback_data %}
                                     <tr>
                                         <td>{{ row.id }}</td>
                                         <td>{{ row.feedback }}</td>
-                                        <td>{{ row.client_id.feedback_reply }}</td>
+                                        
                                     </tr>
                                     {% endfor %}
                                 </table>

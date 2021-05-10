@@ -20,7 +20,7 @@
 							<thead>
                 <tr>
                   <th>Student Name</th>
-                  <th>Profile Picture</th>
+                  {% comment %} <th>Profile Picture</th> {% endcomment %}
                   <th>Mobile Number</th>
                   <th>Address</th>
                   <th>Approve</th>
@@ -31,7 +31,7 @@
                 {% for g in students %}
                 <tr>
                   <td> {{g.get_name}}</td>
-                  <td> <img src="{% static g.profile_pic.url %}" alt="Profile Pic" height="40px" width="40px" /></td>
+                  {% comment %} <td> <img src="{% static g.profile_pic.url %}" alt="Profile Pic" height="40px" width="40px" /></td> {% endcomment %}
                   <td>{{g.mobile}}</td>
                   <td>{{g.address}}</td>
                   <td><a  style="color:red; text-decoration:none;font-size:25px;" href="{% url 'approve-student' g.id  %}">&#10004;</a></td>

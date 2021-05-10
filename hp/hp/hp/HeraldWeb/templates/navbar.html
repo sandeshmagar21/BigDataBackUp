@@ -38,18 +38,18 @@
 
       <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
         <div class="navbar-nav">
-          <a href="/" class="nav-item nav-link active">Home</a>
+          {% comment %} <a href="/" class="nav-item nav-link active">Home</a> {% endcomment %}
 
-          <a href="/adminclick" class="nav-item nav-link">Admin</a>
+          {% comment %} <a href="/adminclick" class="nav-item nav-link">Admin</a> {% endcomment %}
           {% comment %} <a href="/teacherclick" class="nav-item nav-link">Teacher</a> {% endcomment %}
-          <a href="/studentclick" class="nav-item nav-link">Student</a>
+          {% comment %} <a href="/studentclick" class="nav-item nav-link">Student</a> {% endcomment %}
 
 
         </div>
 
-        <div class="navbar-nav">
+        {% comment %} <div class="navbar-nav">
                   <a href="{% url 'contact'%}" class="nav-item nav-link">Contact Us</a>
-        </div>
+        </div> {% endcomment %}
 
       </div>
     </nav>

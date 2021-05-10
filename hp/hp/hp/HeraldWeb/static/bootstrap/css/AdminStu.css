@@ -1,0 +1,103 @@
+body {
+    /* background: #2E95EF; */
+    background-image: url(../img/tom-hermans-9BoqXzEeQqM-unsplash.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-image: -moz-radial-gradient(center 45deg,circle cover, #9BD1FF, #2E95EF);
+    background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%,800, from(#9BD1FF), to(#2E95EF)); */
+    padding-top: 20px;
+}
+
+
+.img-user{
+    width:300px; 
+    height:300px;
+}
+
+.name{
+    text-shadow: 1px 1px 0 #888;
+    color: #FFFFFF;
+    font-family: 'Montserrat';
+}
+
+.jumbotron {
+    margin-left: 850px;
+    margin-right: 230px;
+    margin-top: 100px;
+   
+   
+    background: #858daba8;
+    /* background-image: -moz-radial-gradient(center 45deg,circle cover, #9BD1FF, #d87921);
+    background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%,800, from(#9BD1FF), to(#4dd418)); */
+}
+.row{
+    margin-left: 180px;
+    text-size-adjust: 20%;
+}
+
+.name{
+    margin-left: 45px;
+}
+.jumbotron img {
+    margin-left:85px;
+    max-height: 350px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+}
+
+.brands li:hover{
+    background:#FFFFFF;
+}
+
+.brands li:hover .fa{
+    color:#000000;
+}
+
+.brands {
+    list-style: none;
+    padding-left: 0;
+}
+
+.brands {
+    display: inline;
+}
+
+.brands-inline  li {
+    display: inline-block;
+    margin-right: 5px;
+}
+.brands  li {
+    margin: 0 0 8px;
+}
+
+.brands  li  a {
+    background-color: transparent;
+    color: #FFFFFF;
+    border-top: 3px solid #16A085;
+}
+.brands  li  a {
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    padding-top: 11px;
+    width: 50px;
+    height: 50px;
+}
+
+.content h2 {
+    display: inline;
+    padding: 0 15px 0 15px;
+    font-size: 78px;
+}
+
+.vertical .carousel-inner {
+    height: 100%;
+}
+
+.carousel-inner {
+    margin-bottom: 15px;
+}
+
+.jumbotron .btn {
+    margin-right: 15px;
+}

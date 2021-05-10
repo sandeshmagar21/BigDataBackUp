@@ -152,6 +152,7 @@ nav ul li a {
     cursor: pointer;
     color: #fff;
     display: none;
+   
 }
 
 @media(max-width: 786px) {

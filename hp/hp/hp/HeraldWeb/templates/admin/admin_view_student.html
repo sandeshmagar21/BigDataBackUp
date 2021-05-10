@@ -18,7 +18,7 @@
 							<thead>
                 <tr>
                   <th>Name</th>
-                  <th>Profile Picture</th>
+                <th>Profile Picture</th>
                   <th>Mobile</th>
                   <th>Address</th>
                   <th>Update</th>
@@ -29,13 +29,13 @@
               {% for m in students %}
                 <tr>
                   <td> {{m.get_name}}</td>
-                  <td> <img src="{{m.profile_pic.url}}" alt="Profile Pic" height="40px" width="40px" /></td>
+                  <td> <img src="{{m.profile_pic.url}}" alt="Profile Pic" height="40px" width="40px"></td> 
                   <td>{{m.mobile}}</td>
                   <td>{{m.address}}</td>
                   <td><a  style="color:red; text-decoration:none;font-size:25px;" href="{% url 'update-student' m.id  %}">&#9998;</a></td>
                   <td><a style="color:blue; text-decoration:none;font-size:25px;"href="{% url 'delete-student' m.id  %}">&#10008;</a></td>
                 </tr>
-                {% endfor %}
+            {% endfor %}
 
 							</tbody>
 						</table>

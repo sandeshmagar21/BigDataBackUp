@@ -44,7 +44,7 @@ window.onload = function () {
 			    	})
 			} else {
 				this.send_blank = true;
-				this.placeholder = "Please put in some text";
+				this.placeholder = "Filed Can not be empty";
 			}
 
 		},
@@ -54,7 +54,7 @@ window.onload = function () {
 				this.placeholder = "Send a message to the chatbot...";
 			} else {
 				this.send_blank = true;
-				this.placeholder = "Please put in some text";
+				this.placeholder = "Filed can not be empty";
 			}
 		},
 	  }

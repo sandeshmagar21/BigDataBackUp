@@ -17,7 +17,6 @@ from .models import Contact
 import json
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
-from chatterbot.conversation import Statement
 
 
 
@@ -25,6 +24,9 @@ from chatterbot.conversation import Statement
 
 def homePageBef(request):
     return render(request,'WelcomePage/index.html')
+
+def adminbot(request):
+    return render(request,'admin/adminBot.html')
 
 def homePageAft(request):
     return render(request,'WelcomePage/UserDash.htm')
@@ -64,7 +66,6 @@ def get_response(request):
 		message = data['message']
 
 		chat_response = chatbot.get_response(message).text
-        
 		response['message'] = {'text': chat_response, 'user': False, 'chat_bot': True}
 		response['status'] = 'ok'
 
@@ -75,7 +76,6 @@ def get_response(request):
 		json.dumps(response),
 			content_type="application/json"
 		)
-        
 
 training_data_quesans = open('training_data/database.txt').read().splitlines()
 
@@ -137,29 +137,6 @@ def adminclick_view(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect('afterlogin')
     return HttpResponseRedirect('adminlogin')
-
-
-# for teacher signup 
-def teacher_signup_view(request):
-    userForm=forms.TeacherUserForm()
-    teacherForm=forms.TeacherForm()
-    mydict={'userForm':userForm,'teacherForm':teacherForm}
-    if request.method=='POST':
-        userForm=forms.TeacherUserForm(request.POST)
-        teacherForm=forms.TeacherForm(request.POST,request.FILES)
-        if userForm.is_valid() and teacherForm.is_valid():
-            user=userForm.save()
-            user.set_password(user.password)
-            user.save()
-            teacher=teacherForm.save(commit=False)
-            teacher.user=user
-            teacher.save()
-            my_teacher_group = Group.objects.get_or_create(name='TEACHER')
-            my_teacher_group[0].user_set.add(user)
-            username = userForm.cleaned_data.get('username')
-            messages.success(request, f'Account created for {username}! You are now able to login.')
-        return HttpResponseRedirect('teacherlogin')
-    return render(request,'teacher/teachersignup.html',context=mydict)
 
 
 # for student signup 
@@ -384,51 +361,51 @@ def update_student_view(request,pk):
 #============================================================================================
 # Teacher RELATED views start
 #============================================================================================
-from django.db.models import Q
+# from django.db.models import Q
 
-@login_required(login_url='teacherlogin')
-@user_passes_test(is_teacher)
-def teacher_dashboard_view(request):
-    teacher_obj = models.Teacher.objects.get(user=request.user.id)
-    feedback_data_count = models.FeedBackTeacher.objects.filter(teacher_id=teacher_obj).count()
-    context = {
-        "feedback_data_count":feedback_data_count ,
-        "teacher_obj": teacher_obj
-    }
-    return render(request,'teacher/teacher_dashboard.html', context)
+# @login_required(login_url='teacherlogin')
+# @user_passes_test(is_teacher)
+# def teacher_dashboard_view(request):
+#     teacher_obj = models.Teacher.objects.get(user=request.user.id)
+#     feedback_data_count = models.FeedBackTeacher.objects.filter(teacher_id=teacher_obj).count()
+#     context = {
+#         "feedback_data_count":feedback_data_count ,
+#         "teacher_obj": teacher_obj
+#     }
+#     return render(request,'teacher/teacher_dashboard.html', context)
 
-@login_required(login_url='teacherlogin')
-@user_passes_test(is_teacher)
-def teacher_request_view(request):
-    teacher=models.Teacher.objects.get(user_id=request.user.id)
-    return render(request,'teacher/teacher_request.html',{'teacher':teacher})
-
-
-@login_required(login_url='teacherlogin')
-@user_passes_test(is_teacher)
-def teacher_profile_view(request):
-    teacher=models.Teacher.objects.get(user_id=request.user.id)
-    return render(request,'teacher/teacher_profile.html',{'teacher':teacher})
+# @login_required(login_url='teacherlogin')
+# @user_passes_test(is_teacher)
+# def teacher_request_view(request):
+#     teacher=models.Teacher.objects.get(user_id=request.user.id)
+#     return render(request,'teacher/teacher_request.html',{'teacher':teacher})
 
 
-@login_required(login_url='teacherlogin')
-@user_passes_test(is_teacher)
-def edit_teacher_profile_view(request):
-    teacher=models.Teacher.objects.get(user_id=request.user.id)
-    user=models.User.objects.get(id=teacher.user_id)
-    userForm=forms.TeacherUserForm(instance=user)
-    teacherForm=forms.TeacherForm(request.FILES,instance=teacher)
-    mydict={'userForm':userForm,'teacherForm':teacherForm,'teacher':teacher}
-    if request.method=='POST':
-        userForm=forms.TeacherUserForm(request.POST,instance=user)
-        teacherForm=forms.TeacherForm(request.POST,instance=teacher)
-        if userForm.is_valid() and teacherForm.is_valid():
-            user=userForm.save()
-            user.set_password(user.password)
-            user.save()
-            teacherForm.save()
-            return HttpResponseRedirect('teacher-profile')
-    return render(request,'teacher/edit_teacher_profile.html',context=mydict)
+# @login_required(login_url='teacherlogin')
+# @user_passes_test(is_teacher)
+# def teacher_profile_view(request):
+#     teacher=models.Teacher.objects.get(user_id=request.user.id)
+#     return render(request,'teacher/teacher_profile.html',{'teacher':teacher})
+
+
+# @login_required(login_url='teacherlogin')
+# @user_passes_test(is_teacher)
+# def edit_teacher_profile_view(request):
+#     teacher=models.Teacher.objects.get(user_id=request.user.id)
+#     user=models.User.objects.get(id=teacher.user_id)
+#     userForm=forms.TeacherUserForm(instance=user)
+#     teacherForm=forms.TeacherForm(request.FILES,instance=teacher)
+#     mydict={'userForm':userForm,'teacherForm':teacherForm,'teacher':teacher}
+#     if request.method=='POST':
+#         userForm=forms.TeacherUserForm(request.POST,instance=user)
+#         teacherForm=forms.TeacherForm(request.POST,instance=teacher)
+#         if userForm.is_valid() and teacherForm.is_valid():
+#             user=userForm.save()
+#             user.set_password(user.password)
+#             user.save()
+#             teacherForm.save()
+#             return HttpResponseRedirect('teacher-profile')
+#     return render(request,'teacher/edit_teacher_profile.html',context=mydict)
 
 
 #============================================================================================
@@ -520,40 +497,40 @@ def student_feedback_message(request):
     return render(request, 'admin/student_feedback_template.html', context)
 
 
-@csrf_exempt
-def student_feedback_message_reply(request):
-    feedback_id = request.POST.get('id')
-    feedback_reply = request.POST.get('reply')
+# @csrf_exempt
+# def student_feedback_message_reply(request):
+#     feedback_id = request.POST.get('id')
+#     feedback_reply = request.POST.get('reply')
 
-    try:
-        feedback = models.FeedBackStudent.objects.get(id=feedback_id)
-        feedback.feedback_reply = feedback_reply
-        feedback.save()
-        return HttpResponse("True")
+#     try:
+#         feedback = models.FeedBackStudent.objects.get(id=feedback_id)
+#         feedback.feedback_reply = feedback_reply
+#         feedback.save()
+#         return HttpResponse("True")
 
-    except:
-        return HttpResponse("False")
-
-
-def teacher_feedback_message(request):
-    feedbacks = models.FeedBackTeacher.objects.all()
-    context = {
-        "feedbacks": feedbacks
-    }
-    return render(request, 'admin/teacher_feedback_template.html', context)
+#     except:
+#         return HttpResponse("False")
 
 
-@csrf_exempt
-def teacher_feedback_message_reply(request):
-    feedback_id = request.POST.get('id')
-    feedback_reply = request.POST.get('reply')
-    try:
-        feedback = models.FeedBackTeacher.objects.get(id=feedback_id)
-        feedback.feedback_reply = feedback_reply
-        feedback.save()
-        return HttpResponse("True")
-    except:
-        return HttpResponse("False")
+# def teacher_feedback_message(request):
+#     feedbacks = models.FeedBackTeacher.objects.all()
+#     context = {
+#         "feedbacks": feedbacks
+#     }
+#     return render(request, 'admin/teacher_feedback_template.html', context)
+
+
+# @csrf_exempt
+# def teacher_feedback_message_reply(request):
+#     feedback_id = request.POST.get('id')
+#     feedback_reply = request.POST.get('reply')
+#     try:
+#         feedback = models.FeedBackTeacher.objects.get(id=feedback_id)
+#         feedback.feedback_reply = feedback_reply
+#         feedback.save()
+#         return HttpResponse("True")
+#     except:
+#         return HttpResponse("False")
 
 
 
@@ -564,35 +541,35 @@ def teacher_feedback_message_reply(request):
 
 # For Teacher 
 
-def teacher_feedback(request):
-    teacher_obj = models.Teacher.objects.get(user=request.user.id)
-    feedback_data = models.FeedBackTeacher.objects.filter(teacher_id=teacher_obj)
-    feedback_data_count = models.FeedBackTeacher.objects.filter(teacher_id=teacher_obj).count()
-    print("The data is:", feedback_data_count) 
-    context = {
-        "feedback_data": feedback_data,
-        "feedback_data_count": feedback_data_count,
-        "teacher_obj": teacher_obj
-    }
-    return render(request, 'teacher/teacher_feedback.html', context)
+# def teacher_feedback(request):
+#     teacher_obj = models.Teacher.objects.get(user=request.user.id)
+#     feedback_data = models.FeedBackTeacher.objects.filter(teacher_id=teacher_obj)
+#     feedback_data_count = models.FeedBackTeacher.objects.filter(teacher_id=teacher_obj).count()
+#     print("The data is:", feedback_data_count) 
+#     context = {
+#         "feedback_data": feedback_data,
+#         "feedback_data_count": feedback_data_count,
+#         "teacher_obj": teacher_obj
+#     }
+#     return render(request, 'teacher/teacher_feedback.html', context)
 
 
-def teacher_feedback_save(request):
-    if request.method != "POST":
-        messages.error(request, "Invalid Method.")
-        return redirect('teacher_feedback')
-    else:
-        feedback = request.POST.get('feedback_message')
-        teacher_obj = models.Teacher.objects.get(user_id=request.user.id)
+# def teacher_feedback_save(request):
+#     if request.method != "POST":
+#         messages.error(request, "Invalid Method.")
+#         return redirect('teacher_feedback')
+#     else:
+#         feedback = request.POST.get('feedback_message')
+#         teacher_obj = models.Teacher.objects.get(user_id=request.user.id)
 
-        try:
-            add_feedback = models.FeedBackTeacher(teacher_id=teacher_obj, feedback=feedback, feedback_reply="")
-            add_feedback.save()
-            messages.success(request, "Feedback Sent.")
-            return redirect('teacher_feedback')
-        except:
-            messages.error(request, "Failed to Send Feedback.")
-            return redirect('teacher_feedback')
+#         try:
+#             add_feedback = models.FeedBackTeacher(teacher_id=teacher_obj, feedback=feedback, feedback_reply="")
+#             add_feedback.save()
+#             messages.success(request, "Feedback Sent.")
+#             return redirect('teacher_feedback')
+#         except:
+#             messages.error(request, "Failed to Send Feedback.")
+#             return redirect('teacher_feedback')
 
 
 
